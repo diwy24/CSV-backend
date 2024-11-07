@@ -9,7 +9,7 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: (origin, callback) => {
-    const allowedOrigins = ['http://127.0.0.1:5500', 'https://heyfey-dev.github.io', 'https://csvupload-backend.onrender.com'];
+    const allowedOrigins = ['http://127.0.0.1:5500', 'https://diwy24.github.io/csv-upload/', 'https://csv-backend-yjei.onrender.com'];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
