@@ -6,23 +6,16 @@ const axios = require('axios'); // Import axios for HTTP requests
 const app = express();
 
 // Middleware
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      const allowedOrigins = [
-        'http://127.0.0.1:5500',
-        'https://diwy24.github.io',
-        'https://csv-backend-6qy5.onrender.com',
-      ];
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
+app.use(cors({
+  origin: (origin, callback) => {
+    const allowedOrigins = ['http://127.0.0.1:5500', 'https://diwy24.github.io', 'https://csv-backend-6qy5.onrender.com'];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
     }
-  })
-);
-
+  }
+}));
 app.use(express.json()); // Parse incoming JSON requests
 
 // Endpoint to receive data and send it to the specified URL
